@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="da-DK">
+    <head>
+        <meta charset="utf-8">
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="ui.css" type="text/css">
+        <script src="ui.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    </head>
+    <body>
+    	<div class="l-wrapper" style="display: none;">
+		    <div class="l-grid">
+		        <div class="l-grid__item l-grid__item--sticky" style="width: 30%; float: left;">
+		        	<center>
+				    	<img class="c-logo" src="logo.png" draggable="false" />
+		            </center>
+		            <div class="clearfix"></div>
+		            <div class="c-card">
+		                <div class="c-card__body">
+							<div class="u-text--center" id="winner">
+								<h3 class="u-mt--16 nickname" style="text-transform: none; ">--</h3>
+								<div class="clearfix"></div>
+								<h3 class="u-mt--16 guildname" style="text-transform: none; font-size: 15px; color: #fff;"></h3>
+								<div class="clearfix"></div>
+								<span class="u-text--teal u-text--small"><strong>Killed players:</strong> <span class="killed_count">--</span></span>
+								<div class="clearfix"></div>
+								<span class="u-text--teal u-text--small"><strong>K/D ratio:</strong> <span class="kda_count">--</span></span>
+								<div class="clearfix"></div>
+								<span class="u-text--teal u-text--small"><strong>Deaths by players:</strong> <span class="deaths_count">--</span></span>
+								<div class="clearfix"></div>
+								<span class="u-text--teal u-text--small"><strong>Deaths by world:</strong> <span class="deaths_world_count">--</span></span>
+								<div class="clearfix"></div>
+								<span class="u-text--teal u-text--small"><strong>Suicide:</strong> <span class="suicide_count">--</span></span>
+							</div>
+		                </div>
+		            </div>
+		            <div class="c-card u-bg--light-gradient u-text--dark">
+		                <div class="c-card__body">
+		                    <div class="u-display--flex u-justify--space-between">
+		                        <div class="u-text--left">
+		                            <div class="u-text--small" style="color: #000 !important;">My rank</div>
+		                            <h2 class="myrank">--</h2>
+		                        </div>
+		                        <div class="u-text--right">
+		                            <div class="u-text--small" style="color: #000 !important;">Points</div>
+		                            <h2 class="mypoints">--</h2>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="clearfix"></div>
+		        	<center>
+				    	<button onclick="show_players();" class="x_players c-button c-button--primary active"><i class="fas fa-user-alt"></i> Top players</button>
+				    	<button onclick="show_crews();" class="x_crews c-button c-button--primary"><i class="fas fa-users"></i> Top crews</button>
+				    	<button onclick="show_help();" class="x_help c-button c-button--primary"><i class="fas fa-info-circle"></i> Help</button>
+						<button onclick="show_rules();" class="x_rules c-button c-button--primary"><i class="fas fa-exclamation-triangle"></i> Rules</button>
+						<button onclick="open_discord();" class="x_donate c-button c-button--primary"><i class="fab fa-discord"></i> Discord</button>
+						<button onclick="open_roulette();" class="x_donate c-button c-button--primary"><i class="fas fa-gamepad"></i></i> Roulette</button>
+						<button onclick="show_shop();" class="x_donate c-button c-button--primary"><i class="fas fa-shopping-basket"></i> Donate</button>
+				    	<button onclick="closekda();" class="c-button c-button--primary--x">Close</button>
+		            </center>
+		        </div>
+		        <div class="l-grid__item napoveda" style="display: none; width: 68%; float: right;">
+		            <div class="c-card">
+		                <div class="c-card__header">
+		                    <h3>Help</h3>
+		                </div>
+						<div class="x-list">
+		                    <div class="c-card__body c-info_text">
+						        <!-- ######## START  ######## -->
+							    <p style="color: #4485b8;"><span style="color: #ffffff;">CONTROLS:</span><br /><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">K<br /></span><strong>&nbsp;- STORE A CURRENT VEHICLE.<br /></strong></span></p>
+							    <p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">TAB<br /></span><strong>&nbsp;- OPEN INVENTORY.</strong></span></p>
+						    	<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">F3<br /></span><strong>&nbsp;- OPEN RADIAL MENU (HOLD).</strong></span></p>
+							    <p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">F1<br /></span><strong>&nbsp;- OPEN LEADERBOARD.<br /></strong></span></p>
+							    <p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">F2<br /></span><strong>&nbsp;- OPEN ROULETTE AND SHOP.<br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">F5<br /></span><strong>&nbsp;- OPEN KIT MENU.<br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">F10<br /></span><strong>&nbsp;- OPEN DAILY REWARD MENU.<br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">X<br /></span><strong>&nbsp;- HANDS UP</strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">B<br /></span><strong>&nbsp;- POINTING</strong><strong></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">L<br /></span><strong>&nbsp;- TOGGLE CHAT MODE</strong><strong></strong></span></p>
+				    			<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">DELETE<br /></span><strong>&nbsp;- SHOW ONLINE PLAYERS.<br /><br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">/SHOP<br /></span><strong>&nbsp;- OPEN OWN SHOP.<br /><br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">/CREW<br /></span><strong>&nbsp;- OPEN CREW MENU.<br /><br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">/TOGGLESOUND<br /></span><strong>&nbsp;- TOGGLE ZOMBIE SOUNDS.<br /><br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;">TIPS:</span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">ZOMBIE<br /></span><strong>&nbsp;- Kill zombies, to earn items, money, level.<br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">PVP<br /></span><strong>&nbsp;- Kill players to gain level, increase your rank or get their loot!</strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">PROTECTED INV<br /></span><strong>&nbsp;- Use protected inventory, items stored here cannot be lost!</strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">VIP<br /></span><strong>&nbsp;- You can buy VIP, BOOSTERS and more on WarZ.tebex.io.<br /><br /><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">BOSS<br /></span>&nbsp;- Times: 09:00, 11:00, 13:00, 15:00, 17:00, 19:00, 21:00&nbsp;<br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">AIRDROP<br /></span><strong>&nbsp;- Times: 00:00, 04:00, 08:00, 12:00, 16:00, 20:00".<br /><br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">HELICRASH<br /></span><strong>&nbsp;- Times: 10:30, 16:30, 00:30".<br /><br /></strong></span></p>
+					    		<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">DISCORD<br /></span><strong>&nbsp;- If you have any questions join our discord - DIS.WARZ.CC".<br /><br /></strong></span></p>
+
+					    		<p></p>
+					    		<p></p>
+					    		<p></p>
+					    		<p><span style="color: #ffffff;"><em>&copy; WarZ.cc</em></span></p>
+						        <!-- ######## END  ######## -->
+		                    </div>
+						</div>
+		            </div>
+		        </div>
+
+				<div class="l-grid__item rules" style="display: none; width: 68%; float: right;">
+					<div class="c-card">
+						<div class="c-card__header">
+							<h3>Rules</h3>
+						</div>
+						<div class="x-list">
+							<div class="c-card__body c-info_text">
+								<!-- ######## START  ######## -->
+								<p><span style="color: #000000;"><!-- ######## START  ######## --></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;">RULES:</span><br /><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Cheating</span><strong>&nbsp;<br />- Any form of cheating is strictly forbidden - Includes modifying game files etc. (Graphic mods are allowed)<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Bugging</span><strong>&nbsp;<br />- It is forbidden to use bug in order to gain an advantage. <br />- Every bug has to be reported via tickets in #bug-report on our discord.<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Behavior</span><strong>&nbsp;<br />- No harassment. No sexist, racist or discriminatory comments.<br />- No sharing pornographic content NSFW etc.<br />- No offensive language - this includes political or religious speech.<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Advertising</span><strong>&nbsp;<br />- It is forbidden to advertise other servers or sites without permission.<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Respecting the STAFF</span><strong>&nbsp;<br />- You must always respect any member of STAFF.<br />- You must respect his/her desicions.<br />- TRASHTALKING ANY MEMBER OF STAFF/SERVER = PERMABAN IN GAME/DISCORD.<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Trolling</span><strong>&nbsp;<br />- It is forbidden to provoke players in chat.<br />- It is forbidden to play on the edge of the rules.<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Streamsniping</span><strong>&nbsp;<br />- No stream sniping (you are not allowed to watch a players stream to gather information about his/her position to kill them.<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Gameplay</span><strong>&nbsp;<br />- It is forbidden to have an invisible body part or skin.<br />- It is forbidden to boost (Having an agreement with a player to kill him or getting killed several times to get better stats).<br />- Joining a crew to teamkill and/or steal their stuffs is sanctionned.<br /><br /></strong></span></p>
+								<p style="color: #4485b8;"><span style="color: #ffffff;"><span style="background-color: #4485b8; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Please take note, that rules may change. - STAFF</span><strong><br /><br /></strong></span></p>
+								<p></p>
+								<p></p>
+								<p></p>
+								<p><span style="color: #ffffff;"><em>&copy; WarZ.cc</em></span></p>
+								<!-- ######## END  ######## -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="l-grid__item shop" style="display: none; width: 68%; float: right;">
+					<div class="c-card">
+						<div class="c-card__header">
+							<h3>Shop</h3>
+						</div>
+						<div class="x-list">
+							<div class="c-card__body c-info_text">
+								<!-- ######## START  ######## -->
+								<p><span style="color: #000000;"><!-- ######## START  ######## --></span></p>
+								<p></p>
+								<p><span style="color: #ffffff;"><span style="background-color: #ff3232; display: inline-block; padding: 2px 8px; font-weight: bold; border-radius: 5px;">Shop will be included very soon</span><strong>&nbsp;<br /><br /></strong></span></p>
+								<p></p>
+								<p></p>
+								<p><span style="color: #ffffff;"><em>&copy; WarZ.cc</em></span></p>
+								<!-- ######## END  ######## -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+		        <div class="l-grid__item leaderboard_crews" style="display: none; width: 68%; float: right;">
+		            <div class="c-card">
+		                <div class="c-card__header">
+		                    <h3>Top crews</h3>
+		                    <select class="c-select" id="ranksort_crews" onchange="refreshcrewboard();">
+		                        <option value="byrank" selected>By rank</option>
+		                    </select>
+		                </div>
+		                <div class="c-card__body">
+			                <div class="x-list">
+			                	<table class="table" style="width: 100%; border-collapse:collapse;" border="0" cellspacing="0">
+				                	<thead>
+				                		<tr>
+				                			<th style="width: 10%; text-align: center;">#</th>
+				                			<th style="width: 30%; text-align: left;">Crew name</th>
+				                			<th style="width: 15%; text-align: center;">Kills</th>
+				                			<th style="width: 15%; text-align: center;">Members</th>
+				                		</tr>
+				                	</thead>
+			                		<tbody id="crews_list">
+			                		</tbody>
+			                	</table>
+		                		<div class="clearfix"></div>
+			                </div>
+		                	<div class="clearfix"></div>
+		                </div>
+						<div class="clearfix"></div>
+		            </div>
+					<div class="clearfix"></div>
+				</div>
+		        <div class="l-grid__item leaderboard_players" style="display: block; width: 68%; float: right;">
+		            <div class="c-card">
+		                <div class="c-card__header">
+		                    <h3>Top players</h3>
+		                    <select class="c-select" id="ranksort" onchange="refreshleaderboard();">
+		                        <option value="byrank" selected>By rank</option>
+		                        <option value="bykdas">By K/D</option>
+		                        <option value="bykills">By kills</option>
+		                        <option value="bydeaths">By deaths</option>
+		                        <option value="byplaytimes">By playtime</option>
+		                    </select>
+		                </div>
+		                <div class="c-card__body">
+			                <div class="x-list">
+			                	<table class="table" style="width: 100%; border-collapse:collapse;" border="0" cellspacing="0">
+				                	<thead>
+				                		<tr>
+				                			<th style="width: 10%; text-align: center;">#</th>
+				                			<th style="width: 30%; text-align: left;">Name</th>
+				                			<th style="width: 10%; text-align: center;">Crew</th>
+				                			<th style="width: 8%; text-align: center;">Level</th>
+				                			<th style="width: 8%; text-align: center;">Kills</th>
+				                			<th style="width: 8%; text-align: center;">Deaths</th>
+				                			<th style="width: 8%; text-align: center;">K/D</th>
+				                			<th style="width: 8%; text-align: center;">Suicides</th>
+				                			<th style="width: 8%; text-align: center;">Points</th>
+				                		</tr>
+				                	</thead>
+			                		<tbody id="list">
+			                		</tbody>
+			                	</table>
+		                		<div class="clearfix"></div>
+			                </div>
+		                	<div class="clearfix"></div>
+		                </div>
+						<div class="clearfix"></div>
+		            </div>
+					<div class="clearfix"></div>
+		        </div>
+		    </div>
+		</div>
+    </body>
+</html>

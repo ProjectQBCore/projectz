@@ -1,0 +1,107 @@
+
+@font-face {
+    font-family: 'Heebo';
+    src: url(https://cdn.discordapp.com/attachments/548137697382760460/589533986682961979/Heebo-Regular.ttf);
+}
+
+html {
+	color: #34495e;
+	font-family: 'Heebo';
+
+	
+}
+
+
+#wrap {
+	width: 30vw;
+	min-height: 185px;
+	margin-top: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgb(0, 0, 0, 0.65);
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	color: rgba(255, 255, 255);
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1.0);
+
+	-webkit-box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 4px rgba(0,0,0,0.75);
+
+}
+
+p {
+	float: left;
+	margin-left: 15px;
+	padding-left: 10px;
+	font-size: 1.05vw;
+}
+
+.header {
+	font-family: 'Heebo';
+	height: 100px;
+	font-size:large;
+	width: auto;
+
+	background-image: url("https://cdn.discordapp.com/attachments/641668080761700358/718877117320003675/PartizanBannerRed.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-right: 0px;
+    background-size: 96% 96%;
+	background-position: center;
+	
+	margin-top: 10px;
+	border-top-left-radius: 10px 2px;
+	border-top-right-radius: 5px 2px;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1.0);
+
+}
+.header span {
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1.0);
+}
+
+.jobs {
+	font-family: 'Heebo';
+	padding-top: 110px;
+	text-align: left;
+
+	padding-left: 23.1%;
+	height: 0vw;
+	width: 70%;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1.0);
+
+}
+
+.jobs p {
+	font-family: 'Heebo';
+}
+
+table {
+	text-align: left;
+	color: white;
+}
+
+th, td {
+	padding-left: 25px;
+}
+
+th {
+	padding-top: 15px;
+	height: 40px;
+}
+
+tr {
+	font-size: 0.7vw;
+	font-family: 'Heebo';
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+tr.heading {
+	font-size: 1vw;
+	color: rgba(255, 255, 255, 0.9);
+	
+}
+
+.serverinfo {
+	font-size: 0.55vw;
+	text-align: center;
+}

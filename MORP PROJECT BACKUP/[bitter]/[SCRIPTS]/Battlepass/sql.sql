@@ -1,0 +1,2 @@
+ALTER TABLE `users` 
+ADD COLUMN `xp` bigint(20) NOT NULL DEFAULT '0'

@@ -1,0 +1,177 @@
+<html>
+
+<head>
+	<style>
+		.tokovoipInfo {
+			position: absolute;
+			padding: 5px;
+			font-family: Arial;
+			font-weight: bold;
+			color: white;
+		}
+
+		
+
+		.pluginScreen {
+			display: block;
+			position: absolute;
+			background-image: radial-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.274));
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+
+		.pluginScreenWindow {
+			background: rgba(39, 39, 39, 0.808);
+			width: 250px;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			top: 50%;
+			transform: translateY(-51%);
+			border-left: 2px solid #989898;
+			padding: 20px;
+			color: #eee;
+			font-family: Tahoma, Geneva, sans-serif;
+			font-size: 12px;
+			text-shadow: 1px 1px #000000;
+			font-weight: bold;
+		}
+
+		.talking {
+			color: rgba(244, 196, 65, 255);
+		}
+
+		.normal {
+			color: #00bbff;
+		}
+
+		.copyrights {
+			padding: 5px;
+			padding-bottom: 0;
+			color: white;
+			opacity: 0.2;
+			font-size: 12px;
+		}
+
+		ul {
+			padding-inline-start: 27px;
+			margin-block-start: 6px;
+		}
+
+		#latency {
+			top: 80px;
+			position: absolute;
+			color: white;
+			font-size: 10px;
+			font-weight: 100;
+		}
+	</style>
+	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+	<script src="script.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div id="pluginScreen" class="pluginScreen">
+		<div id="pluginScreenWindow" class="pluginScreenWindow">
+			<div style="font-size:25px;color:#ffffffab;text-align:center;margin-bottom:20px;">
+				TokoVOIP 1.5
+			</div>
+			<font style="color: #ffffffab;">TokoVOIP</font> is our in-game VOIP replacement, using a custom made TS Plugin.
+
+			<br><br>
+
+			If you connect it you use will get:
+			<ul>
+				<li>Quality Voice</li>
+			</ul>
+			
+			You can find more <font color="#f0eb01">information</font> and <font color="#f0eb01">download</font> links at:
+			<font color="#1a79ff" id="TSDownload">https://discord.gg/JJjhzJQz2N</font>
+			<br><br>
+
+			<div id="TSServer">
+			Open Team Speak and Connect using the following IP Address
+			</div>
+			<div id="TSChannel">
+				speak.morp.in:9031
+			</div>
+			<br>
+			<html>
+				<head>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<style>
+				.loader {
+				  border: 8px solid #c9c9c9;
+				  border-radius: 50%;
+				  border-top: 8px solid #0097fc;
+				  border-bottom: 8px solid #0097fc;
+				  width: 35px;
+				  height: 35px;
+				  -webkit-animation: spin 2s linear infinite;
+				  animation: spin 1s linear infinite;
+				}
+				
+				@-webkit-keyframes spin {
+				  0% { -webkit-transform: rotate(0deg); }
+				  100% { -webkit-transform: rotate(360deg); }
+				}
+				
+				@keyframes spin {
+				  0% { transform: rotate(0deg); }
+				  100% { transform: rotate(360deg); }
+				}
+				</style>
+				
+				<div class="loader"></div>
+				
+				</body>
+				</html>
+				<!DOCTYPE html>
+				<html>
+				  <head>
+					<title>Title of the document</title>
+					<style>
+					  #blink {
+						font-size: 15px;
+						font-weight: bold;
+						font-family: Tahoma;
+						color: #fffb00;	
+						transition: 0.4s;
+					  }
+					</style>
+				  </head>
+				  <body>
+					<p id="blink">MORP Loading...</p>
+					<script type="text/javascript">
+					  var blink = document.getElementById('blink');
+					  setInterval(function() {
+						blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+					  }, 1000);
+					</script>
+				  </body>
+				</html>
+			Status:
+			<ul>
+				<li id="pluginStatus">Plugin status: <font color="red">OFFLINE</font>
+				</li>
+				<li id="FiveMState">FiveM websocket: <font color="red">Not connected</font>
+				</li>
+				<li id="Ts3State">Ts3 websocket: <font color="red">Not connected</font>
+				</li>
+				<br />
+				<li id="pluginVersion">Plugin version: <font color="red">Not found</font> (Required: 1.5.4)</li>
+			</ul>
+		</div>
+	</div>
+	<div class="copyrights">
+		by MORP
+	</div>
+	<div id="tokovoipInfo" class="tokovoipInfo">
+	</div>
+	<div id="latency" style="display: none;"></div>
+</body>
+
+</html>

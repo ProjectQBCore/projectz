@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ShopVehicleDataArray>
+	<Vehicles>
+
+		<Item>
+			<lockHash>CU_VEH_ace2kclone</lockHash>
+			<modelNameHash>ace2kclone</modelNameHash>
+			<cost value="100"/>
+			<textLabel>ace2kclone</textLabel>
+			<vehicleMods></vehicleMods>
+		</Item>
+
+
+	</Vehicles>	
+</ShopVehicleDataArray>
